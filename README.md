@@ -9,3 +9,5 @@ Abstract: *Surface reconstruction in street scenes is a critical task in compute
 
 ## Introduce
 
+This repository provides three core modules of our whole project: 
+- The adaptive photometric constraint weighting method in modules/adaptive_weight;
