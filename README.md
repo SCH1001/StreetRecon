@@ -42,9 +42,9 @@ python hash_encoder.py
 Run SDF label computing demo (CUDA-11.8 is needed):
 ```bash
 cd modules/udf_in_svh
-# build the spatial hash grid and compute the distances from the sampled points in the saptial hash voxel to the scene point cloud
+# build the spatial hash grid and compute the distances (udf values) from the sampled points in the saptial hash voxel to the scene point cloud
 python udf_in_svh.py
 ```
 
-The weight maps are visualized as follows:
+The spatial hash grid is visualized as red wireframe and the sampled points in the spatial hash grid are colored by udf values (the deeper color denote the larger udf value):
 ![udf_in_svh](assets/udf_in_svh.png)
