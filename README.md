@@ -18,6 +18,6 @@ This repository provides three core modules of our whole project:
   
 In each module, we provide some test codes to present how to use the module. Note that, CUDA-11.8 is needed.
 
-## Run
+## Install & Run
 
 
