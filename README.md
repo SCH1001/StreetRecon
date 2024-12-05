@@ -20,4 +20,9 @@ In each module, we provide some test codes to present how to use the module. Not
 
 ## Install & Run
 
+Run adaptive weighting module:
 
+```bash
+cd modules/adaptive_weight
+
+```
