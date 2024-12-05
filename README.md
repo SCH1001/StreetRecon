@@ -28,7 +28,7 @@ python adaptivate_weight.py
 ```
 
 The weight maps are visualized as follows:
-![StreetRecon](assets/overview.png)
+![StreetRecon](assets/weight_map.png)
 
 Run B-spline-based hierarchical hash encoder demo:
 
