@@ -27,6 +27,9 @@ cd modules/adaptive_weight
 python adaptivate_weight.py
 ```
 
+The weight maps are visualized as follows:
+![StreetRecon](assets/overview.png)
+
 Run B-spline-based hierarchical hash encoder demo:
 
 ```bash
