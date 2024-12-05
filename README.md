@@ -47,3 +47,6 @@ python spatial_hash_grid.py
 # compute the distances from the sampled points in the saptial hash voxel to the scene point cloud
 python udf_in_svh.py
 ```
+
+The weight maps are visualized as follows:
+![weight_map](assets/udf_in_svh.png)
