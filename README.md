@@ -13,3 +13,4 @@ This repository provides three core modules of our whole project:
 - The adaptive photometric constraint weighting method in `modules/adaptive_weight`;
 - The B-spline based hierarchical hash encoder in `modules/B_spline_hash_encoder`;
 - SDF label computing method within the spatial hash grid in `modules/udf_in_svh`.
+In each module, we provide some test codes to present how to use each module. 
