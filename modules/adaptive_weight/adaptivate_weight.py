@@ -40,7 +40,7 @@ def compute_colorloss_weight(sample, device = "cuda"):
     tmp = torch.matmul(K_src[None, ...].expand(batch_size, num_src, 3, 3), tmp)
     Hom = torch.matmul(tmp, K_ref_inv[None, None, ...])
     
-    patch_size = 5   
+    patch_size = 5    # 3
     total_size = (patch_size * 2 + 1) ** 2
     offsets = torch.arange(-patch_size, patch_size + 1, device=device)
     offsets = torch.stack(torch.meshgrid(offsets, offsets)[::-1], dim=-1).view(1, -1, 2)  
@@ -61,8 +61,6 @@ def compute_colorloss_weight(sample, device = "cuda"):
         return grid
     
     def compute_LNCC(ref_gray, src_grays):   # 内部函数，计算ncc
-        # ref_gray: [1, batch_size, 121, 1]
-        # src_grays: [nsrc, batch_size, 121, 1]
         ref_gray = ref_gray.permute(1, 0, 3, 2)  # [batch_size, 1, 1, 121]
         src_grays = src_grays.permute(1, 0, 3, 2)  # [batch_size, nsrc, 1, 121]
 
@@ -139,7 +137,7 @@ def compute_colorloss_weight(sample, device = "cuda"):
     det_mat = grad_xx * grad_yy - grad_xy * grad_xy
     trace_mat = grad_xx + grad_yy
     scores = det_mat - 0.04 * trace_mat * trace_mat
-    scores = torch.abs(scores)
+    scores = torch.abs(scores)    # 加上绝对值
     stretch_factor = 0.2    
     scores = torch.pow(scores, stretch_factor)
     
@@ -157,6 +155,12 @@ def compute_colorloss_weight(sample, device = "cuda"):
     scores = (scores.cpu().numpy()*255).astype(np.uint8)
     ncc = (ncc.cpu().numpy()*255).astype(np.uint8)
     weight_t = (weight_t.cpu().numpy()*255).astype(np.uint8)
+    
+    # cv2.imwrite("img_ref.jpg", img_ref)
+    # cv2.imwrite("harris.jpg", scores)
+    # cv2.imwrite("ncc.jpg", ncc)
+    # cv2.imwrite("weight.jpg", weight_t)
+    
     cv2.imshow("img_ref", img_ref)
     cv2.imshow("harris", scores)
     cv2.imshow("ncc", ncc)
