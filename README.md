@@ -13,16 +13,34 @@ Our dataset is available at [here](https://doi.org/10.57760/sciencedb.ai.00005).
 
 This repository provides three core modules of our whole project: 
 - The adaptive photometric constraint weighting method in `modules/adaptive_weight`;
-- The B-spline based hierarchical hash encoder in `modules/B_spline_hash_encoder`;
+- The B-spline-based hierarchical hash encoder in `modules/B_spline_hash_encoder`;
 - SDF label computing within the spatial hash grid in `modules/udf_in_svh`.
   
-In each module, we provide some test codes to present how to use the module. Note that, CUDA-11.8 is needed.
+In each module, we provide some demos to present how to use the module. Note that, CUDA-11.8 is needed.
 
 ## Install & Run
 
-Run adaptive weighting module:
+Run adaptive weighting demo:
 
 ```bash
 cd modules/adaptive_weight
+python adaptivate_weight.py
+```
 
+Run B-spline-based hierarchical hash encoder demo:
+
+```bash
+cd modules/B_spline_hash_encoder/CUDA
+python setup.py install
+cd ..
+python hash_encoder.py
+```
+
+Run SDF label computing demo:
+```bash
+cd modules/udf_in_svh
+# build spatial hash voxel 
+python spatial_hash_grid.py
+# compute the distances from the sampled points in the saptial hash voxel to the scene point cloud
+python udf_in_svh.py
 ```
