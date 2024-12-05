@@ -16,7 +16,7 @@ This repository provides three core modules of our whole project:
 - The B-spline-based hierarchical hash encoder in `modules/B_spline_hash_encoder`;
 - SDF label computing within the spatial hash grid in `modules/udf_in_svh`.
   
-In each module, we provide some demos to present how to use the module. Note that, CUDA-11.8 is needed.
+In each module, we provide some demos to present how to use the module.
 
 ## Install & Run
 
@@ -28,7 +28,7 @@ python adaptivate_weight.py
 ```
 
 The weight maps are visualized as follows:
-![StreetRecon](assets/weight_map.png)
+![weight_map](assets/weight_map.png)
 
 Run B-spline-based hierarchical hash encoder demo:
 
@@ -39,7 +39,7 @@ cd ..
 python hash_encoder.py
 ```
 
-Run SDF label computing demo:
+Run SDF label computing demo (CUDA-11.8 is needed):
 ```bash
 cd modules/udf_in_svh
 # build spatial hash voxel 
