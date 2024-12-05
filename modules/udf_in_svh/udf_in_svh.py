@@ -31,7 +31,7 @@ def uniform_sample_svh(svh_dic, num_samples, device = "cuda"):
     
     return x_w 
     
-def compute_pointcloud_dis_svh(svh, ht_info, lcp_index, lcp_array, pts, device = "cuda"):   #pts为输入的点云[N, 3]，输出dis[N]
+def compute_pointcloud_dis_svh(svh, ht_info, lcp_index, lcp_array, pts, device = "cuda"):   
     G = 256
     N = pts.shape[0]  #N为光线数
     K = int(np.ceil(N / G))
@@ -100,9 +100,9 @@ if __name__ == "__main__":
     colors = np.ones_like(pts)
     colors[:,0] -= dis_normalize
     colors[:,1] -= dis_normalize
-    pcd = o3d.geometry.PointCloud()
-    pcd.points = o3d.utility.Vector3dVector(pts)
-    pcd.colors = o3d.utility.Vector3dVector(colors)    # 用udf值进行着色，值越大颜色越深
+    pcd_sample = o3d.geometry.PointCloud()
+    pcd_sample.points = o3d.utility.Vector3dVector(pts)
+    pcd_sample.colors = o3d.utility.Vector3dVector(colors)    # 用udf值进行着色，值越大颜色越深
     
     vox_coord = (ht_info[:, :3]) * voxel_size
     inval_val = 999999
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     render_option.background_color = np.array([0,0,0])	
     render_option.point_size = 1.5	
     render_option.line_width = 0.3 #1  
-    vis.add_geometry(pcd)	#添加点云
+    vis.add_geometry(pcd_sample)	#添加点云
     vis.add_geometry(line_set)	#添加线
     vis.run()
     
