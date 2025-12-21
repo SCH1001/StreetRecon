@@ -48,3 +48,17 @@ python udf_in_svh.py
 
 The spatial hash grid is visualized as red wireframe and the sampled points in the spatial hash grid are colored by udf values (the deeper color denote the larger udf value):
 ![udf_in_svh](assets/udf_in_svh.png)
+
+## Citation
+
+```bibtex
+@article{shi2025accurate,
+  title={Accurate and complete neural implicit surface reconstruction in street scenes using images and LiDAR point clouds},
+  author={Shi, Chenhui and Tang, Fulin and Wu, Yihong and Ji, Hongtu and Duan, Hongjie},
+  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
+  volume={220},
+  pages={295--306},
+  year={2025},
+  publisher={Elsevier}
+}
+```
